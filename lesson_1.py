@@ -12,5 +12,4 @@ team_number = 1678
 team_name = "Citrus Circuits"
 location = "Davis, CA"
 rookie_year = 2004
-is_active: = True
-print("Hi")
+is_active = True
