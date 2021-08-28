@@ -6,3 +6,10 @@
 	# Rookie Year (named rookie_year)
 	# Is Active (named is_active)
 # Be sure to store each variable as the correct type!
+
+ 
+team_number = 1678
+team_name = "Citrus Circuits"
+location = "Davis, CA"
+rookie_year = 2004
+is_active: = True
