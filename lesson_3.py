@@ -13,7 +13,6 @@ def lstlength():
     print(x)
 
 lstlength()
-# iaushduifhuasd
 ################################################
 # Create a program to accept words from a user, and add them to a dictionary. 
 # At the end, use print(mydict) to print out the user's work to them
@@ -21,64 +20,63 @@ lstlength()
 def translate():
     print("Dictionary Translator!")
     mydict = {}
-    w = True
-    z = 0
-    d = True
-    l = True
-    while w:
-        if d == True:
-            a = input("Enter a word: ")
-            b = input("Enter the word's translation: ")
+    word_prompt = True
+    add_items = True
+    #mainloop for prompting words and translations
+    while True:
+        if word_prompt:
+            #inputs
+            word = input("Enter a word: ")
+            translation = input("Enter the word's translation: ")
+            #checks if words or translations are already in dictionary
             for key, value in mydict.items():
-                if key == a:
-                    print("This key is already in use")
-                    l = False
-                    d = False
+                if key == word:
+                    print("This word is already in use")
+                    add_items = False
+                    word_prompt = False
                     continue
-                elif value == b:
-                    print("This value is already in use")
-                    l = False
-                    d = False
+                elif value == translation:
+                    print("This translation is already in use")
+                    add_items = False
+                    word_prompt = False
                     continue
-            x = a.split()
-            x = len(x)
-            if x > 1:
+            #makes sure word has no spaces
+            spaces = len(word.split())
+            if spaces > 1:
                 print("Do not use spaces in the key")
-                l = False        
-        c = input("Would you like to add another word? (y/n): ")
-        if l:
-            mydict[a] = b
-        if c == "y":
-            d = True
-            l = True
+                add_items = False        
+        #asks if more words and translations want to be added
+        more_words = input("Would you like to add another word? (y/n): ")
+        if add_items:
+            mydict[word] = translation
+        if more_words == "y":
+            word_prompt = True
+            add_items = True
             continue
-        elif c == "n":
-            w = False
+        elif more_words == "n":
+            break
         else:
-            d = False
+            word_prompt = False
             continue
-    place = {}
-    z = input("Enter a sentence: ")
-    r = z.split()
+    #translates sentence
+    newdict = {}
+    sentence = input("Enter a sentence: ")
+    sentencesplit = sentence.split()
     pos = -1
-    for i in r:
+    for i in sentencesplit:
         pos += 1
         for key, value in mydict.items():
             if i == key:
                 tword = value
                 realpos = pos
-                place[realpos] = tword
+                newdict[realpos] = tword
             else:
                 continue
-    if realpos == -1:
-        print(z)
-        quit()
-    for key, value in place.items():
-        r.pop(key)
-        r.insert(key, value)
+    for key, value in newdict.items():
+        sentencesplit.pop(key)
+        sentencesplit.insert(key, value)
     translation = " "
-    print("Your translation: " + translation.join(r))
-
+    print("Your translation: " + translation.join(sentencesplit))
     
 translate()
 
