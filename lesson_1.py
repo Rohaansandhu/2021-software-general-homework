@@ -13,3 +13,10 @@ team_name = "Citrus Circuits"
 location = "Davis, CA"
 rookie_year = 2004
 is_active = True
+
+print("Team number is: " + str(team_number))
+print("Team name is " + team_name)
+print("Location is " + location)
+print("Rookie year is " + str(rookie_year))
+print("Is the team still active? " + str(is_active))
+
