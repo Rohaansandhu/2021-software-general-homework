@@ -13,23 +13,15 @@ import math
 def testScores():
     try:
         math = input("Enter Math Score: ")
-        math = int(math)
-        if math > 100:
-            print("Error, test scores must be below 100")
-            return
-        english = input("Enter English Score: ")
-        english = int(english)
-        if english > 100:
-            print("Error, test scores must be below 100")
-            return
         science = input("Enter Science Score: ")
+        english = input("Enter English Score: ")
+        math = int(math)
+        english = int(english)
         science = int(science)
-        if science > 100:
-            print("Error, test scores must be below 100")
-            return
+        if math > 100 or science > 100 or english > 100:
+            return(print("Error, test scores must be below 100"))
     except:
-        print("Use numbers only")
-        return
+        return(print("Use numbers only"))
 
     average = (math + english + science) / 3
     if average >= 90:
@@ -70,51 +62,45 @@ hands = 0.5
 def toys():
     m = input("Enter the amount of money Gregory has: ")
     m = float(m)
-    g = True
-    h = True
-    i = True
+    # variables representing how many of each item he can afford
     by = 0
     bb = 0
     sticky = 0
-    while g:
+    while True:
         if m >= baby_yoda:
             m -= baby_yoda
             by += 1
-            continue
         else:
-            g = False
             break
-    while h:
+    while True:
         if m >= beyblades:
             m -= beyblades
             bb += 1
-            continue
         else:
-            h = False
             break
-    while i:
+    while True:
         if m >= hands:
             m -= hands
             sticky += 1
-            continue
         else:
-            i = False
             break
     m = round(m, 3)
-    print("Gregory can afford " + str(by) + " Baby Yodas " + str(bb) + " Beyblades " + str(sticky) + " Sticky hands with a remainder of $" + str(m))
-
+    print("Gregory can afford " + str(by) + " Baby Yodas " + str(bb) + " Beyblades " + str(sticky) + 
+    " Sticky hands with a remainder of $" + str(m))
 
 toys()
 
 ##########################################################################################
 
 # Ryan is doing his math homework, but the (x!) key on Ryan’s calculator is broke, 
-# you wanting to show off your programming skills so you told him that you will code something to help him do that.
+# you wanting to show off your programming skills so you told him that you will code something to 
+# help him do that.
 # Your program will only accept an integer that is between 0 and 10; 
 # if the number is less or equal to 0, 
 # you will tell him that he broke the program and the program will now shut down. 
 # If the number is more or equals to 10 and is an even number, 
-# you will tell him that he overflood the program and print out the infinity inside the math library, math.inf. Otherwise just print “error”.
+# you will tell him that he overflood the program and print out the infinity inside the math library,
+#  math.inf. Otherwise just print “error”.
 # If he entered a valid number, 
 # you will then use the factorial fabs() function inside the math library to calculate the factorial.
 # If this calculated factorial is below 100, print out this number. 
@@ -128,16 +114,15 @@ def assignment_3():
     try:
         num = int(num)
     except:
-        print("no")
-        quit()
+        return(print("numbers only"))
     dum = num % 2
     if num <= 0:
         print("You broke the program and now the program will shut down")
-        quit()
+        return
     elif num >= 10 and dum == 0:
         print("You overflooded the program")
         print(math.inf)
-        quit()
+        return
     else:
         ans = math.factorial(num)
         if ans < 100:
@@ -145,9 +130,8 @@ def assignment_3():
         else:
             ans *= ans
             print(ans)
-    e = True
-    c = 0
-    while e:
+    count = 0
+    while True:
         f = input("Did you guess right? (yes/no) ")
         if f == "yes":
             print("Congrats!")
@@ -158,10 +142,9 @@ def assignment_3():
             break
         else:
             print("it was a yes or no...")
-            c += 1
-            if c == 3:
+            count += 1
+            if count == 3:
                 print("aqwsedrftvgyhuwoeausfbhjdbsfaiugfywueavfhjsdv")
                 break
-
 
 assignment_3()
