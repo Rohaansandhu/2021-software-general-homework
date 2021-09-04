@@ -5,12 +5,84 @@
 # set the variable x to the length of in_list - but you may NOT use len! 
 # Try to mimic the behavior of len.
 
+def lstlength():
+    in_list = [5, 2, 3, 1, 4, 6, 8, 7]
+    x = 0
+    for i in in_list:
+        x += 1
+    print(x)
 
-
-
+lstlength()
+# iaushduifhuasd
 ################################################
 # Create a program to accept words from a user, and add them to a dictionary. 
 # At the end, use print(mydict) to print out the user's work to them
+
+def translate():
+    print("Dictionary Translator!")
+    mydict = {}
+    w = True
+    z = 0
+    d = True
+    l = True
+    while w:
+        if d == True:
+            a = input("Enter a word: ")
+            b = input("Enter the word's translation: ")
+            for key, value in mydict.items():
+                if key == a:
+                    print("This key is already in use")
+                    l = False
+                    d = False
+                    continue
+                elif value == b:
+                    print("This value is already in use")
+                    l = False
+                    d = False
+                    continue
+            x = a.split()
+            x = len(x)
+            if x > 1:
+                print("Do not use spaces in the key")
+                l = False        
+        c = input("Would you like to add another word? (y/n): ")
+        if l:
+            mydict[a] = b
+        if c == "y":
+            d = True
+            l = True
+            continue
+        elif c == "n":
+            w = False
+        else:
+            d = False
+            continue
+    place = {}
+    z = input("Enter a sentence: ")
+    r = z.split()
+    pos = -1
+    for i in r:
+        pos += 1
+        for key, value in mydict.items():
+            if i == key:
+                tword = value
+                realpos = pos
+                place[realpos] = tword
+            else:
+                continue
+    if realpos == -1:
+        print(z)
+        quit()
+    for key, value in place.items():
+        r.pop(key)
+        r.insert(key, value)
+    translation = " "
+    print("Your translation: " + translation.join(r))
+
+    
+translate()
+
+
 
 
 
